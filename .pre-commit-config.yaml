@@ -1,0 +1,61 @@
+default_install_hook_types: [pre-commit, pre-push]
+
+repos:
+  - repo: local
+    hooks:
+      - id: eslint
+        name: ESLint
+        entry: pnpm run eslint:check
+        language: system
+        stages:
+          - pre-commit
+      - id: prettier
+        name: Prettier
+        entry: pnpm run prettier:check
+        language: system
+        stages:
+          - pre-commit
+      - id: test-check
+        name: Test coverage for the whole project
+        entry: pnpm run test:check
+        language: system
+        pass_filenames: false
+        require_serial: true
+        stages:
+          - pre-push
+      - id: audit-check
+        name: Vulnerability check
+        entry: pnpm run audit
+        language: system
+        stages:
+          - pre-push
+      - id: license-check
+        name: License compliance check
+        entry: pnpm run license-compliance
+        language: system
+        stages:
+          - pre-push
+      - id: check-building
+        name: Check for building
+        entry: pnpm run build
+        language: system
+        pass_filenames: false
+        require_serial: true
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-json
+  - repo: https://github.com/koalaman/shellcheck-precommit
+    rev: v0.7.2
+    hooks:
+      - id: shellcheck
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks
+        stages:
+          - pre-commit

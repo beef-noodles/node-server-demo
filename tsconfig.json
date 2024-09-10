@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "rootDirs": ["src"],
+    "outDir": "./dist",
+    "target": "es6",
+    "module": "CommonJS",
+    "declaration": true,
+    "baseUrl": ".",
+    "sourceMap": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "allowUnusedLabels": true,
+    "allowUnreachableCode": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@test/*": ["./__tests__/*"]
+    }
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "paths": {
+        "@src/*": ["./src/*"],
+        "@test/*": ["./__tests__/*"]
+      },
+      "module": "CommonJS"
+    },
+    "transpileOnly": true,
+    "files": true
+  },
+
+  "include": ["./src/**/*.ts", "__tests__/**/*.ts"],
+  "exclude": ["./vitest.config.ts"],
+  "references": []
+}
