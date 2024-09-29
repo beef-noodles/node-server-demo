@@ -36,7 +36,7 @@ afterAll(async () => {
   await database.stop()
 })
 
-describe.only('userRepository', () => {
+describe('userRepository', () => {
   const existingUserId = '0191e5c4-c515-791b-8c82-b32a194f0317'
 
   describe('findByName', () => {
