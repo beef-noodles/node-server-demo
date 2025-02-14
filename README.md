@@ -41,7 +41,11 @@ pnpm run dev
 
 ```sh
 # Request the Health Check API
-curl 'http://localhost:3000/api/v1/health'
+curl -i -X GET \
+   -H "X-User-Role:Contributor" \
+   -H "X-User-Name:name" \
+ 'http://localhost:3000/api/v1/health'
+
 # Output should like {"status":"Running","dateTime":"2024-08-13T11:18:11+08:00"}
 ```
 
