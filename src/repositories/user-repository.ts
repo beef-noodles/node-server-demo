@@ -1,7 +1,8 @@
-import prisma from '@src/utils/db-clients'
+import { Prisma } from '@prisma/client'
 import dayjs from 'dayjs'
 import { v7 as uuidV7 } from 'uuid'
-import { OrderType } from './common'
+
+import prisma from '@src/utils/db-clients'
 class UserRepository {
   async add(name: string, email: string) {
     return await prisma.user.create({
@@ -14,11 +15,7 @@ class UserRepository {
     })
   }
 
-  async findByName(
-    name: string,
-    limit: number = 10,
-    order: OrderType = OrderType.Desc
-  ) {
+  async findByName(name: string, limit: number = 10, order: Prisma.SortOrder) {
     return await prisma.user.findMany({
       take: limit,
       where: {

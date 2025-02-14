@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest'
+
 import { loggerFactory } from '@src/utils/logger'
 
 describe('loggerFactory', () => {

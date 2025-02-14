@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 import { StatusCodes } from 'http-status-codes'
+
 import { UserHeader, UserRole } from '@src/middlewares/helper'
 
 const authorizedFor = (roles: UserRole[]) => {

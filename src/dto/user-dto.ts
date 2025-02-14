@@ -1,4 +1,5 @@
 import { User } from '@prisma/client'
+
 import DTOMapper from '@src/dto/interface'
 
 export interface UserResponse {

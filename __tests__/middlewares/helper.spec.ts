@@ -1,8 +1,10 @@
-import request from 'supertest'
 import express from 'express'
+import request from 'supertest'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { FIXTURE_ALLOWED_LOCALHOST } from '@test/fixtures'
+
 import { applyConfig } from '@src/middlewares/helper'
+
+import { FIXTURE_ALLOWED_LOCALHOST } from '@test/fixtures'
 
 describe('applyConfig', () => {
   it('should apply JSON and URL-encoded middleware', async () => {

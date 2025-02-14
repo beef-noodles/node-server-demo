@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
-import { UnknownKeysParam, z, ZodError } from 'zod'
-
 import { StatusCodes } from 'http-status-codes'
+import { UnknownKeysParam, z, ZodError } from 'zod'
 
 export enum ValidateType {
   Body = 'body',

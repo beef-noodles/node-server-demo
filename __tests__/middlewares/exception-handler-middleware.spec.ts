@@ -1,9 +1,10 @@
-import { beforeEach, describe, expect, it } from 'vitest'
-import supertest from 'supertest'
 import express, { NextFunction, Request, Response } from 'express'
-import exceptionHandlerMiddleware from '@src/middlewares/exception-handler-middleware'
+import supertest from 'supertest'
+import { beforeEach, describe, expect, it } from 'vitest'
+
 import InternalServerErrorException from '@src/exceptions/internal-server-error-exception'
 import NotFoundException from '@src/exceptions/not-found-exception'
+import exceptionHandlerMiddleware from '@src/middlewares/exception-handler-middleware'
 
 describe('exceptionHandlerMiddleware', async () => {
   let app: express.Application

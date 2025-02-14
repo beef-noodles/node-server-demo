@@ -1,6 +1,7 @@
-import { glob } from 'glob'
-import { PostgreSqlContainer } from '@testcontainers/postgresql'
 import * as path from 'node:path'
+
+import { PostgreSqlContainer } from '@testcontainers/postgresql'
+import { glob } from 'glob'
 
 export const mockedUUID1 = 'fe63df90-dc63-4305-888e-66369b0d28f6'
 

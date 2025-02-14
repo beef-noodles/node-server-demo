@@ -1,7 +1,8 @@
-import { describe, expect, it, vi } from 'vitest'
 import httpMocks from 'node-mocks-http'
-import authorizedFor from '@src/middlewares/permission-middleware'
+import { describe, expect, it, vi } from 'vitest'
+
 import { UserRole } from '@src/middlewares/helper'
+import authorizedFor from '@src/middlewares/permission-middleware'
 
 describe('permissionMiddleware', () => {
   it('should return 403 status when requesting given user role not match', async () => {

@@ -1,10 +1,10 @@
-import { OrderType } from '@src/repositories/common'
+import { Prisma } from '@prisma/client'
 import { z } from 'zod'
 
 export const userSearchQuerySchema = z.object({
   name: z.string().optional(),
   limit: z.coerce.number().positive().optional(),
-  sort: z.nativeEnum(OrderType).optional(),
+  sort: z.nativeEnum(Prisma.SortOrder).optional(),
 })
 
 export const createUserSchema = z.object({

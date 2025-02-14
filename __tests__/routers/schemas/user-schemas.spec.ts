@@ -1,5 +1,6 @@
+import { Prisma } from '@prisma/client'
 import { describe, expect, it } from 'vitest'
-import { OrderType } from '@src/repositories/common'
+
 import {
   createUserSchema,
   userSearchQuerySchema,
@@ -26,14 +27,14 @@ describe('user-schema', () => {
     })
 
     it('should return success result given valid data', () => {
-      const validData = { limit: '10', sort: OrderType.Asc }
+      const validData = { limit: '10', sort: Prisma.SortOrder.asc }
 
       const result = userSearchQuerySchema.safeParse(validData)
 
       expect(result.success).toBeTruthy()
       expect(result.data).toEqual({
         limit: 10,
-        sort: OrderType.Asc,
+        sort: Prisma.SortOrder.asc,
       })
     })
   })

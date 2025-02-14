@@ -1,5 +1,6 @@
-import { describe, expect, it, vi } from 'vitest'
 import httpMocks from 'node-mocks-http'
+import { describe, expect, it, vi } from 'vitest'
+
 import authMiddleware from '@src/middlewares/auth-middleware'
 
 describe('authMiddleware', () => {

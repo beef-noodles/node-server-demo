@@ -1,8 +1,8 @@
-import logger from './logger'
 import prisma from './db-clients'
+import logger from './logger'
 
 class GracefulShutdown {
-  signals: Array<string> = ['SIGINT', 'SIGTERM', 'exit']
+  signals: string[] = ['SIGINT', 'SIGTERM', 'exit']
 
   async register() {
     this.signals.forEach((signal: string) => {

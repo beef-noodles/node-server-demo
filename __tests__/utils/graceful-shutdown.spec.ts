@@ -1,7 +1,8 @@
 import { describe, it, expect, vi, beforeEach, MockInstance } from 'vitest'
+
+import prisma from '@src/utils/db-clients'
 import gracefulShutdown from '@src/utils/graceful-shutdown'
 import logger from '@src/utils/logger'
-import prisma from '@src/utils/db-clients'
 
 describe('GracefulShutdown', () => {
   let processOnSpy: MockInstance

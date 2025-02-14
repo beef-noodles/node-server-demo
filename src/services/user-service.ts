@@ -1,8 +1,8 @@
-import logger from '@src/utils/logger'
-import { OrderType } from '@src/repositories/common'
-import userRepository from '@src/repositories/user-repository'
-import { User } from '@prisma/client'
+import { Prisma, User } from '@prisma/client'
+
 import NotFoundException from '@src/exceptions/not-found-exception'
+import userRepository from '@src/repositories/user-repository'
+import logger from '@src/utils/logger'
 class UserService {
   async getAll() {
     return await userRepository.getAll()
@@ -11,7 +11,7 @@ class UserService {
   async findUsersBy(
     name: string,
     limit: number,
-    orderType: OrderType
+    orderType: Prisma.SortOrder
   ): Promise<User[]> {
     logger.info(
       `Start to get the users_limit: ${limit}, orderType: ${orderType}`

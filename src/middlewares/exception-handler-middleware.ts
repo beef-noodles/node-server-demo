@@ -1,6 +1,8 @@
 import { NextFunction, Request, Response } from 'express'
-import InternalServerErrorException from '../exceptions/internal-server-error-exception'
 import { StatusCodes } from 'http-status-codes'
+
+import InternalServerErrorException from '../exceptions/internal-server-error-exception'
+
 import NotFoundException from '@src/exceptions/not-found-exception'
 
 const exceptionHandlerMiddleware = (

@@ -1,5 +1,6 @@
-import express, { Express } from 'express'
 import cors from 'cors'
+import express, { Express } from 'express'
+
 import envConfig from '../config/env'
 
 export enum UserRole {

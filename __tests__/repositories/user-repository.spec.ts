@@ -1,3 +1,7 @@
+import { resolve } from 'path'
+
+import { Prisma, PrismaClient } from '@prisma/client'
+import { StartedPostgreSqlContainer } from '@testcontainers/postgresql'
 import {
   afterAll,
   beforeAll,
@@ -7,11 +11,8 @@ import {
   onTestFinished,
   vi,
 } from 'vitest'
-import { StartedPostgreSqlContainer } from '@testcontainers/postgresql'
-import { PrismaClient } from '@prisma/client'
+
 import { databaseContainer } from '@test/fixtures'
-import { resolve } from 'path'
-import { OrderType } from '@src/repositories/common'
 
 let database: StartedPostgreSqlContainer
 let prismaClient: PrismaClient
@@ -48,7 +49,7 @@ describe('userRepository', () => {
       const userList = await userRepository.findByName(
         'test',
         10,
-        OrderType.Desc
+        Prisma.SortOrder.desc
       )
 
       expect(userList).toHaveLength(1)

@@ -1,11 +1,13 @@
-import { describe, expect, it, vi } from 'vitest'
-import { mockApp } from '@test/routers/helper'
-import request from 'supertest'
 import { StatusCodes } from 'http-status-codes'
-import { mockedUUID1 } from '@test/fixtures'
-import userService from '@src/services/user-service'
-import userRouter from '@src/routers/user-router'
+import request from 'supertest'
+import { describe, expect, it, vi } from 'vitest'
+
 import { UserHeader, UserRole } from '@src/middlewares/helper'
+import userRouter from '@src/routers/user-router'
+import userService from '@src/services/user-service'
+
+import { mockedUUID1 } from '@test/fixtures'
+import { mockApp } from '@test/routers/helper'
 import { mockUser } from '@test/services/fixtures'
 
 describe('user router', () => {

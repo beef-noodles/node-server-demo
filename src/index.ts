@@ -1,13 +1,14 @@
 import express, { Router, Express } from 'express'
 
-import healthRouter from './routers/health-router'
 import { port } from './config'
 import exceptionHandlerMiddleware from './middlewares/exception-handler-middleware'
-import logger from './utils/logger'
-import gracefulShutdown from './utils/graceful-shutdown'
 import { applyConfig } from './middlewares/helper'
-import userRouter from '@src/routers/user-router'
+import healthRouter from './routers/health-router'
+import gracefulShutdown from './utils/graceful-shutdown'
+import logger from './utils/logger'
+
 import authMiddleware from '@src/middlewares/auth-middleware'
+import userRouter from '@src/routers/user-router'
 
 const createApp = async () => {
   await gracefulShutdown.register()

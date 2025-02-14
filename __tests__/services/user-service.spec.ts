@@ -1,10 +1,10 @@
+import { Prisma, User } from '@prisma/client'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import userService from '@src/services/user-service'
-import userRepository from '@src/repositories/user-repository'
 import { mockUser } from './fixtures'
-import { OrderType } from '@src/repositories/common'
-import { User } from '@prisma/client'
+
+import userRepository from '@src/repositories/user-repository'
+import userService from '@src/services/user-service'
 
 describe('user-service', () => {
   afterEach(() => {
@@ -40,13 +40,17 @@ describe('user-service', () => {
         mockedUser3,
       ])
 
-      const result = await userService.findUsersBy('name', 5, OrderType.Desc)
+      const result = await userService.findUsersBy(
+        'name',
+        5,
+        Prisma.SortOrder.desc
+      )
 
       expect(result.length).toEqual(3)
       expect(result[0]?.id).toBe(mockedUser1Id)
       expect(result[0]?.name).toBe(mockedUser1.name)
       expect(result[0]?.email).toBe(mockedUser1.email)
-      expect(findByNameSpy).toBeCalledWith('name', 5, OrderType.Desc)
+      expect(findByNameSpy).toBeCalledWith('name', 5, Prisma.SortOrder.desc)
     })
   })
 

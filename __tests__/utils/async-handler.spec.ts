@@ -1,8 +1,9 @@
-import { describe, it, expect, vi } from 'vitest'
 import express, { Request, Response, NextFunction } from 'express'
-import asyncHandler from '@src/utils/async-handler'
-import request from 'supertest'
 import { StatusCodes } from 'http-status-codes'
+import request from 'supertest'
+import { describe, it, expect, vi } from 'vitest'
+
+import asyncHandler from '@src/utils/async-handler'
 
 describe('asyncHandler', () => {
   const mockedURL = '/test'

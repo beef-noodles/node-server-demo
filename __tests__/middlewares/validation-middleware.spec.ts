@@ -1,8 +1,10 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { Request, Response, NextFunction } from 'express'
-import { z } from 'zod'
 import { StatusCodes } from 'http-status-codes'
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { z } from 'zod'
+
 import { validateData } from '@src/middlewares/validation-middleware'
+
 import { mockedUUID1 } from '@test/fixtures'
 
 describe('validateData middleware', () => {

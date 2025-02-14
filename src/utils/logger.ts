@@ -1,5 +1,5 @@
-import log4js from 'log4js'
 import dotenvx from '@dotenvx/dotenvx'
+import log4js from 'log4js'
 
 export const loggerFactory = () => {
   dotenvx.config({
