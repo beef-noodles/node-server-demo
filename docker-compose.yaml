@@ -3,7 +3,7 @@ services:
     build:
       context: .
     environment:
-      DATABASE_URL: postgresql://postgres:password@host.docker.internal:5432/mydb?schema=public
+      DATABASE_URL: postgresql://postgres:password@postgis:5432/mydb?schema=public
     ports:
       - '3001:3000'
     depends_on:
@@ -13,10 +13,11 @@ services:
     build:
       context: .
     environment:
-      DATABASE_URL: postgresql://postgres:password@host.docker.internal:5432/mydb?schema=public
+      DATABASE_URL: postgresql://postgres:password@postgis:5432/mydb?schema=public
     entrypoint: ['npx', 'prisma', 'migrate', 'deploy']
     depends_on:
       - postgis
+        # condition: service_completed_successfully
   postgis:
     image: postgis/postgis
     ports:
