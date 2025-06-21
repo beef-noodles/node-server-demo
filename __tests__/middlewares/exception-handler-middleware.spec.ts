@@ -1,4 +1,5 @@
 import express, { NextFunction, Request, Response } from 'express'
+import { StatusCodes } from 'http-status-codes'
 import supertest from 'supertest'
 import { beforeEach, describe, expect, it } from 'vitest'
 
@@ -16,17 +17,17 @@ describe('exceptionHandlerMiddleware', async () => {
   it.each([
     {
       error: new InternalServerErrorException('Internal Server Error'),
-      expectedStatus: 500,
+      expectedStatus: StatusCodes.INTERNAL_SERVER_ERROR,
       expectedMessage: 'Internal Server Error',
     },
     {
       error: new Error('Unexpected error'),
-      expectedStatus: 500,
+      expectedStatus: StatusCodes.INTERNAL_SERVER_ERROR,
       expectedMessage: 'An unexpected error occurred',
     },
     {
       error: new NotFoundException('Dummy error details'),
-      expectedStatus: 400,
+      expectedStatus: StatusCodes.NOT_FOUND,
       expectedMessage: 'Dummy error details',
     },
   ])(

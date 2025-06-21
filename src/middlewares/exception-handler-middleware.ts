@@ -9,16 +9,15 @@ const exceptionHandlerMiddleware = (
   err: Error,
   _req: Request,
   res: Response,
-  next: NextFunction
+  _next: NextFunction
 ) => {
-  next(err)
   if (err instanceof InternalServerErrorException) {
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
       .json({ message: err.message })
   }
   if (err instanceof NotFoundException) {
-    return res.status(StatusCodes.BAD_REQUEST).json({ message: err.message })
+    return res.status(StatusCodes.NOT_FOUND).json({ message: err.message })
   }
   return res
     .status(StatusCodes.INTERNAL_SERVER_ERROR)
