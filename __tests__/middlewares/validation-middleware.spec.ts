@@ -49,7 +49,7 @@ describe('validateData middleware', () => {
       expect(res.status).toHaveBeenCalledWith(StatusCodes.BAD_REQUEST)
       expect(res.json).toHaveBeenCalledWith({
         error: 'Invalid data',
-        details: [{ message: 'name is Expected string, received number' }],
+        details: [{ message: 'body.name is Expected string, received number' }],
       })
     })
 
@@ -111,7 +111,7 @@ describe('validateData middleware', () => {
         error: 'Invalid data',
         details: [
           {
-            message: `sort is Invalid enum value. Expected 'aes' | 'desc', received 'Not supported sort type'`,
+            message: `query.sort is Invalid enum value. Expected 'aes' | 'desc', received 'Not supported sort type'`,
           },
         ],
       })
@@ -132,7 +132,7 @@ describe('validateData middleware', () => {
       expect(res.status).toHaveBeenCalledWith(StatusCodes.BAD_REQUEST)
       expect(res.json).toHaveBeenCalledWith({
         error: 'Invalid data',
-        details: [{ message: 'limit is Number must be greater than 0' }],
+        details: [{ message: 'query.limit is Number must be greater than 0' }],
       })
     })
 
@@ -184,7 +184,7 @@ describe('validateData middleware', () => {
       expect(res.status).toHaveBeenCalledWith(StatusCodes.BAD_REQUEST)
       expect(res.json).toHaveBeenCalledWith({
         error: 'Invalid data',
-        details: [{ message: 'id is Invalid UUID' }],
+        details: [{ message: 'params.id is Invalid UUID' }],
       })
     })
 
@@ -205,7 +205,7 @@ describe('validateData middleware', () => {
         error: 'Invalid data',
         details: [
           {
-            message: `type is Invalid enum value. Expected 'csv' | 'excl', received 'not in the enum'`,
+            message: `params.type is Invalid enum value. Expected 'csv' | 'excl', received 'not in the enum'`,
           },
         ],
       })
@@ -225,10 +225,10 @@ describe('validateData middleware', () => {
         error: 'Invalid data',
         details: [
           {
-            message: 'id is Required',
+            message: 'params.id is Required',
           },
           {
-            message: 'type is Required',
+            message: 'params.type is Required',
           },
         ],
       })
