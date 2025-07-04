@@ -17,15 +17,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-      - uses: actions/setup-python@v3
-      - uses: pre-commit/action@v3.0.1
-
       - name: Install pnpm
         run: npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install
 
+      - uses: actions/setup-python@v3
+      - uses: pre-commit/action@v3.0.1
       - name: Run pre-commit checks
         run: pnpm run lint:all
 
