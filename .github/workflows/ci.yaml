@@ -21,7 +21,7 @@ jobs:
         run: npm install -g pnpm
 
       - name: Install dependencies
-        run: pnpm instal --ignore-scripts
+        run: pnpm install --ignore-scripts
 
       - uses: actions/setup-python@v3
       - uses: pre-commit/action@v3.0.1
