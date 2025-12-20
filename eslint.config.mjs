@@ -141,6 +141,6 @@ export default [
     },
   },
   {
-    ignores: ['coverage', 'vitest.config.ts', 'dist'],
+    ignores: ['coverage', 'vitest.config.ts', 'dist', 'node_modules'],
   },
 ]
