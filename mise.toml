@@ -1,6 +1,6 @@
 [tools]
 node = "25.2.1"
-pnpm = "10.20.0"
+pnpm = "10.26.1"
 pre-commit = "4.3.0"
 
 [hooks]
